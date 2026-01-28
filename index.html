@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Menu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>My Restaurant</h2>
+  <button onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
+</header>
+
+<div class="menu" id="menuContainer"></div>
+
+<!-- Cart & Checkout Modals -->
+<div id="cartModal" class="cart-modal">
+  <div class="cart-content">
+    <span class="close" onclick="closeCart()">&times;</span>
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-footer">
+      <span id="cartTotal">Total: GHS 0</span>
+      <button onclick="openCheckout()">Checkout</button>
+    </div>
+  </div>
+</div>
+
+<div id="checkoutModal" class="checkout-modal">
+  <div id="checkoutForm">
+    <span class="close" onclick="closeCheckout()">&times;</span>
+    <h2>Checkout</h2>
+    <div id="checkoutItems"></div>
+    <p>Total: GHS <span id="checkoutTotal">0</span></p>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <input type="tel" id="whatsapp" placeholder="WhatsApp Number(233XXXXXXXXX)" required>
+    <input type="text" id="address" placeholder="Delivery Address / Pickup" required>
+    <button id="placeOrder">Place Order</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="products.js"></script>
+</body>
+</html>

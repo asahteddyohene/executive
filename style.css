@@ -1,0 +1,76 @@
+/* GENERAL RESET */
+body, html {margin:0;padding:0;font-family:Arial,sans-serif;background:#0b0b0b;color:white;}
+h2,h3,h1,p{margin:0;}
+
+/* HEADER */
+header {display:flex;justify-content:space-between;padding:10px 20px;background:linear-gradient(90deg,#f4c430,#ffdd00);color:black;position:sticky;top:0;z-index:1000;border-bottom:3px solid #222;}
+header h2 {margin:0;font-weight:bold;}
+header button {background:linear-gradient(90deg,#ff6f61,#f4c430);color:white;padding:8px 16px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;transition:0.3s;}
+header button:hover {transform:scale(1.05);box-shadow:0 0 10px #f4c430;}
+
+/* HERO SECTION */
+.hero {position:relative;height:70vh;display:flex;justify-content:center;align-items:center;overflow:hidden;}
+.slide {width:100%;height:70vh;object-fit:cover;position:absolute;top:0;left:0;opacity:0;transition:opacity 1s;}
+.slide.active {opacity:1;}
+.hero-content {position:relative;text-align:center;color:white;z-index:10;}
+.hero-content h1 {font-size:48px;margin-bottom:20px;text-shadow:2px 2px 6px black;}
+.hero-content button {padding:16px 32px;font-size:20px;border:none;border-radius:16px;background:linear-gradient(90deg,#ff6f61,#f4c430);color:black;font-weight:bold;cursor:pointer;transition:0.3s;}
+.hero-content button:hover {transform:scale(1.05);box-shadow:0 0 20px #f4c430;}
+
+/* MENU CARDS */
+.menu {display:grid;grid-template-columns:1fr;gap:20px;padding:20px;}
+.food-card {background:linear-gradient(135deg,#222,#333);padding:15px;border-radius:16px;text-align:center;animation:fadeUp 0.6s ease;transition:0.3s;}
+.food-card:hover{transform:translateY(-5px);box-shadow:0 0 20px #f4c430;}
+.food-card img {width:100%;height:180px;border-radius:12px;object-fit:cover;}
+.food-card h3 {color:#f4c430;margin:10px 0;}
+.food-card select, .food-card button {width:100%;padding:12px;margin-top:8px;border-radius:12px;border:none;transition:0.3s;}
+.food-card button {background:linear-gradient(90deg,#ff6f61,#f4c430);color:black;font-weight:bold;cursor:pointer;}
+.food-card button:hover{transform:scale(1.05);box-shadow:0 0 15px #f4c430;}
+.price {color:#f4c430;margin-top:5px;display:block;font-size:18px;}
+
+/* CART MODAL */
+.cart-modal, .checkout-modal {
+  display:flex; justify-content:flex-end; align-items:center;
+  position:fixed; top:0; right:-100%;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.7); z-index:2000;
+  transition:right 0.4s ease;
+}
+.cart-modal.active, .checkout-modal.active { right:0; }
+
+.cart-content, #checkoutForm {
+  background:linear-gradient(135deg,#111,#222);
+  color:white; padding:25px; border-radius:20px;
+  width:90%; max-width:450px; height:100%; overflow-y:auto;
+  box-shadow:0 0 25px #f4c430;
+}
+
+.close {position:absolute; top:15px; right:20px; font-size:28px; cursor:pointer; color:#f4c430; transition:0.3s;}
+.close:hover {transform:scale(1.2);}
+
+/* CART ITEMS */
+#cartItems .cart-item {display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #333;}
+.cart-item button {background:linear-gradient(90deg,#ff6f61,#f4c430);border:none;padding:6px 12px;border-radius:8px;color:black;font-weight:bold;cursor:pointer;transition:0.3s;}
+.cart-item button:hover{transform:scale(1.1);box-shadow:0 0 10px #f4c430;}
+
+/* CART FOOTER */
+.cart-footer {margin-top:15px;display:flex;justify-content:space-between;align-items:center;}
+.cart-footer button {background:linear-gradient(90deg,#ff6f61,#f4c430);color:black;padding:12px 24px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;transition:0.3s;}
+.cart-footer button:hover{transform:scale(1.05);box-shadow:0 0 15px #f4c430;}
+
+/* CHECKOUT FORM FIELDS */
+#checkoutForm input,#checkoutForm select,#checkoutForm textarea,#checkoutForm button {width:100%;padding:12px;margin:8px 0;border-radius:12px;border:none;transition:0.3s;}
+#checkoutForm input,#checkoutForm select,#checkoutForm textarea{background:#111;color:white;}
+#checkoutForm textarea{display:none;}
+#checkoutForm button{background:linear-gradient(90deg,#ff6f61,#f4c430);color:black;font-weight:bold;cursor:pointer;}
+#checkoutForm button:hover{transform:scale(1.05);box-shadow:0 0 15px #f4c430;}
+
+/* TOAST */
+#toast {position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#f68b1e;color:black;padding:12px 24px;border-radius:12px;box-shadow:0 0 10px #f4c430;display:none;font-weight:bold;z-index:3000;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{transform:translateY(20px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* MEDIA */
+@media(min-width:768px){.menu{grid-template-columns:repeat(3,1fr);}}
